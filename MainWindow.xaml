@@ -8,7 +8,7 @@
         Title="Big File Downloader" Height="482" Width="833" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Icon="Icons/shell32_16752.ico">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="Icons/Placeholder.png"/>
+            <ImageBrush ImageSource="Icons/Background.png"/>
         </Grid.Background>
 
         <Grid.RowDefinitions>
@@ -90,7 +90,7 @@
                         <DropShadowEffect ShadowDepth="0" BlurRadius="6" Color="#FF818181"/>
                     </Rectangle.Effect>
                 </Rectangle>
-                <Button x:Name="bInstall" Content="Install" Click="InstallButton_Click" BorderThickness="0">
+                <Button x:Name="bInstall" Content="Download" Click="InstallButton_Click" BorderThickness="0">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="1,0.5" StartPoint="0.5,0">
                             <GradientStop Color="#FFB9B9B9"/>
