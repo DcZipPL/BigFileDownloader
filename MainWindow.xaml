@@ -1,0 +1,136 @@
+﻿<Window x:Class="InstallerM2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InstallerM2"
+        mc:Ignorable="d"
+        Title="Big File Downloader" Height="482" Width="833" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Icon="Icons/shell32_16752.ico">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Icons/Placeholder.png"/>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="110"/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="#00000000"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF0068FF" Offset="1"/>
+                    <GradientStop Color="#FF00AEFF"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            
+            <ProgressBar x:Name="netProgressBar" Foreground="#FF0050B0" BorderBrush="{x:Null}"
+                         VerticalAlignment="Bottom" Maximum="200" Height="20" Margin="15,0,15,15">
+                <ProgressBar.Effect>
+                    <DropShadowEffect ShadowDepth="0" BlurRadius="6" Color="#FF818181"/>
+                </ProgressBar.Effect>
+                <ProgressBar.Background>
+                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0.5,0">
+                        <GradientStop Color="#FFB9B9B9"/>
+                        <GradientStop Color="#FFD8D8D8" Offset="1"/>
+                    </LinearGradientBrush>
+                </ProgressBar.Background>
+            </ProgressBar>
+            <TextBlock x:Name="InfoBlock" VerticalAlignment="Bottom" Foreground="#FF575757" Margin="21,0,0,18" Text="No Errors"/>
+            
+            <ProgressBar x:Name="otherProgressBar" Foreground="#FF0050B0" BorderBrush="{x:Null}"
+                         VerticalAlignment="Bottom" Maximum="600" Height="20" Margin="15,0,15,45">
+                <ProgressBar.Effect>
+                    <DropShadowEffect ShadowDepth="0" BlurRadius="6" Color="#FF818181"/>
+                </ProgressBar.Effect>
+                <ProgressBar.Background>
+                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0.5,0">
+                        <GradientStop Color="#FFB9B9B9"/>
+                        <GradientStop Color="#FFD8D8D8" Offset="1"/>
+                    </LinearGradientBrush>
+                </ProgressBar.Background>
+            </ProgressBar>
+            
+            <TextBlock x:Name="NETlabel" Text="NET %" HorizontalAlignment="Right"
+                       VerticalAlignment="Bottom" Margin="0,0,18,18" TextAlignment="Right"/>
+            <TextBlock x:Name="IOlabel" Text="I/O %" HorizontalAlignment="Right"
+                       VerticalAlignment="Bottom" Margin="0,0,18,48" TextAlignment="Right"/>
+
+            <Grid Height="20" Margin="16,0,102,64">
+                <Rectangle>
+                    <Rectangle.Fill>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0.5,0">
+                            <GradientStop Color="#FFB9B9B9"/>
+                            <GradientStop Color="#FFD8D8D8" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                    <Rectangle.Effect>
+                        <DropShadowEffect ShadowDepth="0" BlurRadius="6" Color="#FF818181"/>
+                    </Rectangle.Effect>
+                </Rectangle>
+                <TextBlock x:Name="placeholderBox" VerticalAlignment="Center" Text="Use | to Separate Downloads" Foreground="#FF575757" Margin="5,0,0,0"/>
+                <TextBox x:Name="addressbox" BorderThickness="0" Background="{x:Null}" VerticalAlignment="Center" Margin="3,0,0,0" TextChanged="addressbox_TextChanged"/>
+            </Grid>
+            
+            <Grid Width="80" Height="20" VerticalAlignment="Center"
+                  HorizontalAlignment="Right" Margin="0,0,16,64">
+                <Rectangle Fill="White">
+                    <Rectangle.Effect>
+                        <DropShadowEffect ShadowDepth="0" BlurRadius="6" Color="#FF818181"/>
+                    </Rectangle.Effect>
+                </Rectangle>
+                <Button x:Name="bInstall" Content="Install" Click="InstallButton_Click" BorderThickness="0">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0.5,0">
+                            <GradientStop Color="#FFB9B9B9"/>
+                            <GradientStop Color="#FFD8D8D8" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+            </Grid>
+        </Grid>
+        <!--<Rectangle HorizontalAlignment="Left" Height="381" VerticalAlignment="Top" Width="827" Margin="0,-1,0,0">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF00D1FF" Offset="0"/>
+                    <GradientStop Color="#FF00A9CF" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle HorizontalAlignment="Left" Height="74" Margin="0,379,0,0" VerticalAlignment="Top" Width="827" Fill="#FF00D1FF"/>
+        <Button x:Name="bInstall" Content="Download" HorizontalAlignment="Left" Margin="10,359,0,0" VerticalAlignment="Top" Width="75" Click="bInstall_Click" BorderBrush="#FF00D1FF" Height="20" Background="#FF00D1FF" Foreground="White"/>
+        <Label Content="Starbound Download-Center von DownloadCrackedGames.com" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24"/>
+        <WebBrowser x:Name="WebBrowser1" HorizontalAlignment="Left" Height="451" VerticalAlignment="Top" Width="825" Source="http://thonemasterprochr30paidloginregisterbuy.com/Buy.php" Cursor="AppStarting" Visibility="Hidden"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,52,0,0" TextWrapping="Wrap" Text="laden Sie das Spiel kostenlos ohne zusätzliche Kosten und bösartige Software und auch ohne das Installationsprogramm . Download-Spiel-Center laufen und extrahieren Sie die heruntergeladene Spiel aus der Anwendung und genießen Sie das Gameplay" VerticalAlignment="Top" Height="289" Width="773" FontSize="14"/>
+        <Grid x:Name="InGrid" HorizontalAlignment="Left" VerticalAlignment="Top" Height="454" Width="827" Margin="0,-1,0,0" Visibility="Hidden">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF00E8FF" Offset="0"/>
+                    <GradientStop Color="#FF00DCFF" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Label Content="Your Game are downloaded and unpacked" HorizontalAlignment="Center" Margin="184,10,183,61" VerticalAlignment="Center" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#00000000" Foreground="White" Height="56"/>
+            <Label Content="If this game I like you. You can help the creators. Buy game!" HorizontalAlignment="Center" Margin="107,66,82,10" VerticalAlignment="Center" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#00000000" Foreground="White" Height="51"/>
+        </Grid>
+        <ProgressBar x:Name="ProgressBar1" Height="20" Maximum="200"/>
+        <ProgressBar x:Name="ProgressBar1_Copy" Height="20" Maximum="600"/>
+        -->
+        <!--<ProgressBar x:Name="ProgressBar2" HorizontalAlignment="Left" Height="20" Margin="615,396,0,0" VerticalAlignment="Top" Width="200" Maximum="600"/>-->
+        <!--
+        <Label x:Name="NETlabel" Content="NET %"/>
+        <Label x:Name="IOlabel" Content="IO %" HorizontalAlignment="Right"/>
+        <Button x:Name="bExit" Content="Exit" Width="75" BorderBrush="Red" Height="20" Background="Red" Foreground="White" Click="bExit_Click"/>-->
+
+    </Grid>
+</Window>
