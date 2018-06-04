@@ -20,7 +20,7 @@ using System.IO;
 using System.Net;
 using System.ComponentModel;
 
-namespace InstallerM2
+namespace BigFileDownloader
 {
     /// <summary>
     /// Logika interakcji dla klasy MainWindow.xaml

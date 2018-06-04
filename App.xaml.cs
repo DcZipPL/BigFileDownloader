@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace InstallerM2
+namespace BigFileDownloader
 {
     /// <summary>
     /// Logika interakcji dla klasy App.xaml
