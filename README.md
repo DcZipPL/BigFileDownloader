@@ -1,5 +1,3 @@
-# This project is moved to GitLab
-- https://gitlab.com/DcZipPL
 # Big File Downloader
 Big File Downloader can download a lot of files and big files (4GB)
 ## Requirements
